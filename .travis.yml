@@ -8,10 +8,10 @@ script:
   - docker run nm926/react-test npm test  -- --coverage
 
 after_success:
-  - docker build -t nm926/multi-client  ./client
-  - docker build -t nm926/multi-nginx   ./nginx
-  - docker build -t nm926/multi-server  ./server
-  - docker build -t nm926/multi-worker  ./worker
+  - docker build -t neelsky/multi-client  ./client
+  - docker build -t neelsky/multi-nginx   ./nginx
+  - docker build -t neelsky/multi-server  ./server
+  - docker build -t neelsky/multi-worker  ./worker
 
 # Log in to the docker cli
 
@@ -20,7 +20,7 @@ after_success:
 
 # Take those images and push them to docker hub
 
-  - docker push nm926/multi-client
-  - docker push nm926/multi-nginx
-  - docker push nm926/multi-server
-  - docker push nm926/multi-worker
+  - docker push neelsky/multi-client
+  - docker push neelsky/multi-nginx
+  - docker push neelsky/multi-server
+  - docker push neelsky/multi-worker
