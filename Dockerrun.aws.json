@@ -1,0 +1,41 @@
+{
+   "AWSEBDockerrunVersion": 2,
+   "containerDefinitions": [
+
+   {
+      "name":"client",
+      "image": "neelsky/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+   {
+     "name":"server",
+     "image": "neelsky/multi-server",
+     "hostname": "api",
+     "essential": false
+   },
+   {
+     "name":"worker",
+     "image": "neelsky/multi-worker",
+     "hostname": "worker",
+     "essential": false
+   },
+
+   {
+     "name":"nginx",
+     "image": "neelsky/multi-nginx",
+     "hostname": "nginx",
+     "essential": true,
+     "portMappings": [
+       {
+         "hostport": 80,
+         "containerPort": 80
+       }
+   ],
+
+     "links":["client","server"]
+   }
+
+  ]
+
+}
